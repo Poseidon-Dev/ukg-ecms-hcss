@@ -24,3 +24,20 @@ class UKGBaseService:
     @property
     def operation(self):
         return self.client.service
+
+class Login:
+
+    def __init__(self):
+        self.service = UKGBaseService('LoginService').operation
+
+    def Authenticate(self):
+        return self.service.Authenticate()
+
+    def fetch_by_id(self):
+        return self.service.GetJobByEmployeeIdentifier()
+
+    def query(self):
+        return self.service.FindJobs()
+
+    def update(self):
+        return self.service.UpdateJob()

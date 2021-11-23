@@ -1,10 +1,10 @@
 import apps.employee
-from apps.employee.services import Person, Compensation, Address
+from apps.employee.models import JobModel, PersonModel
+from apps.employee.services import PersonService, CompensationService, AddressService
+from apps.services import Login
 
-p = Person()
-c = Compensation()
-a = Address()
+l = Login()
 
-print(p.ping())
-print(c.ping())
-print(a.ping())
+response = l.Authenticate()
+
+print(response)
