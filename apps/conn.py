@@ -27,14 +27,6 @@ class UKGConn:
     def __init__(self):
         self.auth = HTTPBasicAuth(UID, PWD)
 
-# UserName = 'APLBOT'
-# Password = r'_[A#cI)V-T{V[{F%xLsJYC98Jg_[rhHb{L^E!2.VSLmak?s^jH'
-# UserAccessKey = 'E0946G000RV0'
-# ClientAccessKey = 'LJCSN'
-# BaseURL = 'https://service5.ultipro.com/services/'
-
-
-
 
 # wsdl = BaseURL + 'loginservice'
 

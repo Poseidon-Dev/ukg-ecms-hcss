@@ -36,6 +36,7 @@ class Address:
 
     def update(self):
         return self.service.UpdateAddress()
+        
 
 class Compensation:
 
