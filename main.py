@@ -1,10 +1,6 @@
-import apps.employee
-from apps.employee.models import JobModel, PersonModel
-from apps.employee.services import PersonService, CompensationService, AddressService
-from apps.services import Login
+from apps import UKGBaseService
+from apps.employee import JobModel, JobService
 
-l = Login()
-
-response = l.Authenticate()
-
+j = JobService()
+response = j.ping()
 print(response)

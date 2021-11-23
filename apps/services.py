@@ -2,7 +2,7 @@ import zeep
 from core.defaults import *
 from apps.models import APIConfig
 
-__all__ = ['UKGBaseService']
+__all__ = ['UKGBaseService', 'Login']
 
 class UKGBaseService:
 

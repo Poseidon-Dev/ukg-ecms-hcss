@@ -19,7 +19,7 @@ class CompensationModel:
     pass
 
 
-class EmployementInformationModel:
+class EmploymentInformationModel:
     pass
 
 class JobModel:

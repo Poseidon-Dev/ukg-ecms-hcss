@@ -1,5 +1,7 @@
 from core.defaults import *
 
+__all__ = ['APIConfig']
+
 class APIConfig:
 
     Token = {
@@ -9,17 +11,3 @@ class APIConfig:
         'UserName': UserName,
     }
 
-
-class Employee:
-    AlternativeEmailAddress = ''
-    EmailAddress = ''
-    FirstName = ''
-    FormerLastName = ''
-    LastName = ''
-    MiddleName = ''
-    PreferredFirstName = ''
-    Prefix = ''
-    SSN = ''
-    Suffix = ''
-    SuppressSSN = True
-    EmployeeIdentifier = 0
