@@ -10,11 +10,14 @@ __all__ = ['PersonModel',
 class PersonModel:
     pass
 
+
 class AddressModel:
     pass
 
+
 class CompensationModel:
     pass
+
 
 class EmployementInformationModel:
     pass
@@ -84,39 +87,50 @@ class JobModel:
     def _employee_type(self, type):
         return type
 
+
     def _full_or_part(self, fop):
         if fop.upper() not in ['F', 'P']:
             raise ValueError(f'{fop} is not an allowable value')
         return fop.upper()
+
 
     def _hourly_or_salary(self, hos):
         if hos.upper() not in ['H', 'S']:
             raise ValueError(f'{hos} is not an allowable value')
         return hos.upper()
 
+
     def _job_code(self, jc):
         return jc
+
 
     def _pay_frequency(self, pf):
         return pf
 
+
     def _pay_group(self, pg):
         return pg
+
 
     def _scheduled_hours(self, sh):
         return sh
 
+
     def _effective_date(self, ed):
         return ed
+
     
     def as_dict(self):
         return vars(self)
 
+
     def __str__(self):
         return str(self.as_dict())
 
+
 class NewHireModel:
     pass
+
 
 class ContactsModel:
     pass
