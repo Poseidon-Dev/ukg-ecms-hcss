@@ -3,6 +3,8 @@ from requests.api import request
 from requests.auth import HTTPBasicAuth
 import zeep
 
+__all__ = ['']
+
 # from core.defaults import *
 
 WSDL_URL = 'https://service5.ultipro.com/services/EmployeeUserDefinedFields?wsdl=wsdl0'
@@ -75,22 +77,6 @@ class UKGBaseService:
     def operation(self):
         return self.client.service
 
-class EmployeePersonService:
-
-    def __init__(self):
-        self.service = UKGBaseService('EmployeePerson').operation
-
-    def ping(self):
-        return self.service.Ping()
-
-    def fetch_by_id(self):
-        return self.service.GetPersonByEmployeeIdentifier()
-
-    def person_search(self):
-        return self.service.FindPeople()
-
-    def update_person(self):
-        return self.service.UpdatePerson()
 
     
 

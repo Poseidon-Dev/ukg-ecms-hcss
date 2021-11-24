@@ -1,10 +1,6 @@
-import apps.employee
-from apps.employee.services import Person, Compensation, Address
+from apps import UKGBaseService
+from apps.employee import JobModel, JobService
 
-p = Person()
-c = Compensation()
-a = Address()
-
-print(p.ping())
-print(c.ping())
-print(a.ping())
+j = JobService()
+response = j.ping()
+print(response)

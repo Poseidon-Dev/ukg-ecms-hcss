@@ -1,14 +1,15 @@
 from apps.services import UKGBaseService
 
-__all__ = [
-    'Person', 
-    'Address', 
-    'Compensation', 
-    'EmploymentInformation', 
-    'Job', 
-    'Termination']
+__all__ = ['PersonService', 
+           'AddressService', 
+           'CompensationService', 
+           'EmploymentInformationService', 
+           'JobService', 
+           'NewHireService', 
+           'ContactsService',
+           ]
 
-class Person:
+class PersonService:
 
     def __init__(self):
         self.service = UKGBaseService('EmployeePerson').operation
@@ -26,7 +27,7 @@ class Person:
         return self.service.UpdatePerson()
 
 
-class Address:
+class AddressService:
 
     def __init__(self):
         self.service = UKGBaseService('EmployeeAddress').operation
@@ -44,7 +45,7 @@ class Address:
         return self.service.UpdateAddress()
 
 
-class Compensation:
+class CompensationService:
 
     def __init__(self):
         self.service = UKGBaseService('EmployeeCompensation').operation
@@ -62,7 +63,7 @@ class Compensation:
         return self.service.UpdateCompensation()
 
 
-class EmploymentInformation:
+class EmploymentInformationService:
 
     def __init__(self):
         self.service = UKGBaseService('EmploymentInformation').operation
@@ -80,7 +81,7 @@ class EmploymentInformation:
         return self.service.UpdateEmploymentInformation()
 
     
-class Job:
+class JobService:
 
     def __init__(self):
         self.service = UKGBaseService('EmployeeJob').operation
@@ -98,20 +99,36 @@ class Job:
         return self.service.UpdateJob()
 
 
-class Termination:
+class NewHireService:
 
     def __init__(self):
-        self.service = UKGBaseService('Termination').operation
+        self.service = UKGBaseService('EmployeeNewHire').operation
+
+    def ping(self):
+        return self.service.Ping()
+
+    def create(self):
+        return self.service.NewHireUsa()
+
+
+
+class ContactsService:
+
+    def __init__(self):
+        self.service = UKGBaseService('EmployeeContacts').operation
 
     def ping(self):
         return self.service.Ping()
 
     def fetch_by_id(self):
-        return self.service.GetTerminationByEmployeeIdentifier()
+        return self.service.GetContactByEmployeeIdentifier()
+
+    def fetch_by_contact_id(self):
+        return self.service.GetEmployeeContactByContactId()
 
     def query(self):
-        return self.service.FindTerminations()
+        return self.service.FindContacts()
 
     def update(self):
-        return self.service.TerminateEmployee()
+        return self.service.UpdateContact()
 
