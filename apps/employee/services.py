@@ -1,6 +1,12 @@
 from apps.services import UKGBaseService
 
-__all__ = ['Person', 'Address', 'Compensation', 'EmploymentInformation', 'Job']
+__all__ = [
+    'Person', 
+    'Address', 
+    'Compensation', 
+    'EmploymentInformation', 
+    'Job', 
+    'Termination']
 
 class Person:
 
@@ -36,7 +42,7 @@ class Address:
 
     def update(self):
         return self.service.UpdateAddress()
-        
+
 
 class Compensation:
 
@@ -90,3 +96,22 @@ class Job:
 
     def update(self):
         return self.service.UpdateJob()
+
+
+class Termination:
+
+    def __init__(self):
+        self.service = UKGBaseService('Termination').operation
+
+    def ping(self):
+        return self.service.Ping()
+
+    def fetch_by_id(self):
+        return self.service.GetTerminationByEmployeeIdentifier()
+
+    def query(self):
+        return self.service.FindTerminations()
+
+    def update(self):
+        return self.service.TerminateEmployee()
+
