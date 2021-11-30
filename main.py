@@ -1,6 +1,10 @@
-from apps import UKGBaseService
-from apps.employee import JobModel, JobService
+from src.services import *
+from src.persons import *
 
-j = JobService()
-response = j.ping()
-print(response)
+
+service = PersonService()
+person = service.get_person_by_id('99998')
+
+print(person)
+
+

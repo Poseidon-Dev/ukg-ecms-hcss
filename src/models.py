@@ -1,26 +1,13 @@
-__all__ = ['PersonModel', 
-           'AddressModel', 
-           'CompensationModel', 
-           'EmploymentInformationModel', 
-           'JobModel', 
-           'NewHireModel', 
-           'ContactsModel',
-           ]
+from typing import OrderedDict
 
 class PersonModel:
-    pass
 
-
-class AddressModel:
-    pass
-
-
-class CompensationModel:
-    pass
-
-
-class EmploymentInformationModel:
-    pass
+    def __init__(self, person_dict):
+        for k,v in person_dict['Person'].items():
+            if isinstance(v, dict):
+                for val in v:
+                    v = val
+                    setattr(self, k, v)
 
 class JobModel:
     
@@ -128,9 +115,30 @@ class JobModel:
         return str(self.as_dict())
 
 
-class NewHireModel:
-    pass
 
 
-class ContactsModel:
-    pass
+# OrderedDict([
+#     ('Person', OrderedDict([
+#         ('AlternateEmailAddress', OrderedDict([
+#             ('@i:nil', 'true')])), 
+#         ('EmailAddress', 'testemployee@arizonapipeline.com'), 
+#         ('EmployeeIdentifier', OrderedDict([
+#             ('@i:type', 'EmployeeNumberIdentifier'), 
+#         ('CompanyCode', 'APC'), 
+#         ('EmployeeNumber', '99998')])), 
+#         ('FirstName', 'Employee'), 
+#         ('FormerLastName', OrderedDict([
+#             ('@i:nil', 'true')])), 
+#         ('LastName', 'TestAPIP'), 
+#         ('MiddleName', OrderedDict([
+#             ('@i:nil', 'true')])), 
+#         ('PreferredFirstName', 'Employee'), 
+#         ('Prefix', OrderedDict([
+#             ('@i:nil', 'true')])), 
+#         ('SSN', '999999997'), 
+#         ('SelfServiceProperties', OrderedDict([
+#             ('@i:nil', 'true'), 
+#         ('@xmlns:c', 'http://schemas.microsoft.com/2003/10/Serialization/Arrays')])), 
+#         ('Suffix', OrderedDict([
+#             ('@i:nil', 'true')])), 
+#         ('SuppressSSN', 'false')]))])

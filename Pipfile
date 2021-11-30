@@ -5,7 +5,9 @@ name = "pypi"
 
 [packages]
 requests = "*"
-zeep = "*"
+lxml = "*"
+jinja2 = "*"
+xmltodict = "*"
 
 [dev-packages]
 

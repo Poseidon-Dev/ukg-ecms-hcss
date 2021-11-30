@@ -1,0 +1,12 @@
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing">
+    <s:Header>
+        <a:Action   s:mustUnderstand="1">http://www.ultipro.com/services/loginservice/ILoginService/Authenticate</a:Action>
+        <h:ClientAccessKey xmlns:h="http://www.ultipro.com/services/loginservice">{{ ClientAccessKey }}</h:ClientAccessKey>
+        <h:Password xmlns:h="http://www.ultipro.com/services/loginservice">{{ Password }}</h:Password>
+        <h:UserAccessKey xmlns:h="http://www.ultipro.com/services/loginservice">{{ UserAccessKey }}</h:UserAccessKey>
+        <h:UserName xmlns:h="http://www.ultipro.com/services/loginservice">{{ UserName }}</h:UserName>
+    </s:Header>
+    <s:Body>
+        <TokenRequest xmlns="http://www.ultipro.com/contracts" />
+    </s:Body>
+</s:Envelope>

@@ -1,0 +1,15 @@
+<s:Envelope xmlns:a="http://www.w3.org/2005/08/addressing" xmlns:s="http://www.w3.org/2003/05/soap-envelope">
+    <s:Header>
+        <a:Action s:mustUnderstand="1">http://www.ultipro.com/services/employeeperson/IEmployeePerson/{{ service_name }}</a:Action>
+        <UltiProToken xmlns="http://www.ultimatesoftware.com/foundation/authentication/ultiprotoken">{{ Token }}</UltiProToken>
+        <ClientAccessKey xmlns="http://www.ultimatesoftware.com/foundation/authentication/clientaccesskey">{{ ClientAccessKey }}</ClientAccessKey>
+    </s:Header>
+    <s:Body>
+        <GetPersonByEmployeeIdentifier xmlns="http://www.ultipro.com/services/employeeperson">
+            <employeeIdentifier xmlns:b="http://www.ultipro.com/contracts" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="b:EmployeeNumberIdentifier">
+                <b:CompanyCode>{{ CompanyCode }}</b:CompanyCode>
+                <b:EmployeeNumber>{{ EmployeeIdentifier }}</b:EmployeeNumber>
+            </employeeIdentifier>
+        </GetPersonByEmployeeIdentifier>
+    </s:Body>
+</s:Envelope>

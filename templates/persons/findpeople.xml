@@ -1,0 +1,36 @@
+<s:Envelope xmlns:a="http://www.w3.org/2005/08/addressing" xmlns:s="http://www.w3.org/2003/05/soap-envelope">
+    <s:Header>
+        <a:Action s:mustUnderstand="1">http://www.ultipro.com/services/employeeperson/IEmployeePerson/FindPeople</a:Action>
+        <UltiProToken xmlns="http://www.ultimatesoftware.com/foundation/authentication/ultiprotoken">{{ Token }}</UltiProToken>
+        <ClientAccessKey xmlns="http://www.ultimatesoftware.com/foundation/authentication/clientaccesskey">{{ ClientAccessKey }}</ClientAccessKey>
+    </s:Header>
+    <s:Body>
+        <FindPeople xmlns="http://www.ultipro.com/services/employeeperson">
+            <query xmlns:b="http://www.ultipro.com/contracts" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+                <b:CompanyCode{% if company_code %}>= ({{ company_code }})</b:CompanyCode>{% else %} />{% endif %}
+                <b:CompanyName{% if company_name %}>= ({{ company_name }})</b:CompanyName>{% else %} />{% endif %}
+                <b:Country{% if country %}>= ({{ country }})</b:Country>{% else %} />{% endif %}
+                <b:EmployeeNumber{% if employee_number %}>= ({{ employee_number }})</b:EmployeeNumber>{% else %} />{% endif %}
+                <b:FirstName{% if first_name %}>like (%{{ first_name }}%)</b:FirstName>{% else %} />{% endif %}
+                <b:FormerName{% if former_name %}>=like (%{{ former_name }}%)</b:FormerName>{% else %} />{% endif %}
+                <b:FullOrPartTime{% if full_or_part %}>= ({{ full_or_part }})</b:FullOrPartTime>{% else %} />{% endif %}
+                <b:Job{% if job %}>= ({{ job }})</b:Job>{% else %} />{% endif %}
+                <b:LastHire{% if last_hire %}>= ({{ last_hire }})</b:LastHire>{% else %} />{% endif %}
+                <b:LastName{% if last_name %}>like (%{{ last_name }}%)</b:LastName>{% else %} />{% endif %}
+                <b:Location{% if location %}>= ({{ location }})</b:Location>{% else %} />{% endif %}
+                <b:OrganizationLevel1{% if org_level_1 %}>= ({{ org_level_1 }})</b:OrganizationLevel1>{% else %} />{% endif %}
+                <b:OrganizationLevel2{% if org_level_2 %}>= ({{ org_level_2 }})</b:OrganizationLevel2>{% else %} />{% endif %}
+                <b:OrganizationLevel3{% if org_level_3 %}>= ({{ org_level_3 }})</b:OrganizationLevel3>{% else %} />{% endif %}
+                <b:OrganizationLevel4{% if org_level_4 %}>= ({{ org_level_4 }})</b:OrganizationLevel4>{% else %} />{% endif %}
+                <b:OriginalHire{% if original_hire %}>= ({{ original_hire }})</b:OriginalHire>{% else %} />{% endif %}
+                <b:PageNumber{% if page_number %}>{{ page_number }}</b:PageNumber>{% else %} />{% endif %}
+                <b:PageSize{% if page_size %}>{{ page_size }}</b:PageSize>{% else %} />{% endif %}
+                <b:PayGroup{% if pay_group %}>= ({{ pay_group }})</b:PayGroup>{% else %} />{% endif %}
+                <b:Status{% if status %}>= ({{ status }})</b:Status>{% else %} />{% endif %}
+                <b:SupervisorLastName{% if supervisor_last_name %}>(like (%{{ supervisor_last_name }}%)</b:SupervisorLastName>{% else %} />{% endif %}
+                <b:TerminationDate{% if terminiation_date %}>= ({{ terminiation_date }})</b:TerminationDate>{% else %} />{% endif %}
+                <b:TimeClockId{% if time_clock_id %}>= ({{ time_clock_id }})</b:TimeClockId>{% else %} />{% endif %}
+            </query>
+        </FindPeople>
+    </s:Body>
+</s:Envelope>
