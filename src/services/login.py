@@ -1,6 +1,6 @@
 import re
 
-from src.services import SoapService
+from src.services.soap_connection import SoapService
 
 __all__ = ['LoginToken']
 

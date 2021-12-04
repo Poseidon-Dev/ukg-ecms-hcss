@@ -1,4 +1,5 @@
-from src.services import SoapService, LoginToken
+from src.services.soap_connection import SoapService
+from src.services.login import LoginToken
 
 __all__ = ['GetPersonByEmployeeIdentifier', 'FindPeople', 'UpdatePerson']
 
@@ -11,7 +12,7 @@ class PersonService(SoapService):
             # 'Token': LoginToken().token(),
             'Token': '123455',
         }
-        super(PersonService, self).__init__()
+        super().__init__()
 
 
 class GetPersonByEmployeeIdentifier(PersonService):
@@ -21,7 +22,7 @@ class GetPersonByEmployeeIdentifier(PersonService):
             'EmployeeIdentifier': employee_id,
             'CompanyCode': company_code, 
         }
-        super(GetPersonByEmployeeIdentifier, self).__init__(args, kwargs)
+        super().__init__(args, kwargs)
 
 
 class FindPeople(PersonService):
@@ -32,7 +33,7 @@ class FindPeople(PersonService):
             'page_size': page_size,
         }
         self.headers = self.headers | {k:v for k,v in kwargs.items()}
-        super(FindPeople, self).__init__(args, kwargs)
+        super().__init__(args, kwargs)
 
 
 class UpdatePerson(PersonService):
@@ -43,6 +44,6 @@ class UpdatePerson(PersonService):
             'FirstName': first_name,
             'LastName': last_name }
         self.headers = self.headers | {k:v for k,v in kwargs.items()}
-        super(UpdatePerson, self).__init__(args, kwargs)
+        super().__init__(args, kwargs)
 
     

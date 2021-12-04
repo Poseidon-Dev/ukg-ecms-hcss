@@ -1,12 +1,11 @@
 from src import Person
-from src import LoginToken
-from src.rest.conn import UKGApi
+from src import UKG
 
-# service = Person.UpdatePerson('SomeFirstName', 'SomeLastName', '99998')
-# render = service.render()
-# print(render)
-
-conn = UKGApi()
-render = conn._post_request('personnel', 'employee-ids')
+service = Person.GetPersonByEmployeeIdentifier('99998')
+render = service.render()
 print(render)
+
+# conn = UKGApi()
+# render = conn._post_request('personnel', 'employee-ids')
+# print(render)
 

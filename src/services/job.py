@@ -1,4 +1,5 @@
-from src.services import SoapService, LoginToken
+from src.services.soap_connection import SoapService
+from src.services.login import LoginToken
 
 __all__ = ['FindJobs', 'GetJobByEmployeeIdentifier', 'UpdateJob']
 
@@ -9,6 +10,7 @@ class JobService(SoapService):
     def __init__(self, *args, **kwargs):
         self.headers = self.headers | {
             'Token': '12345',
+            # 'Token': Login.LoginToken(),
         }
         super(JobService, self).__init__()
 
