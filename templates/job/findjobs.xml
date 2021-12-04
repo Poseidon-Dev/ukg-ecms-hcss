@@ -1,0 +1,38 @@
+<s:Envelope xmlns:a="http://www.w3.org/2005/08/addressing"
+    xmlns:s="http://www.w3.org/2003/05/soap-envelope">
+    <s:Header>
+        <a:Action s:mustUnderstand="1">http://www.ultipro.com/services/employeejob/IEmployeeJob/FindJobs</a:Action>
+        <UltiProToken xmlns="http://www.ultimatesoftware.com/foundation/authentication/ultiprotoken">e477967b-aa38-4187-a1a9-0849a8aab891</UltiProToken>
+        <ClientAccessKey xmlns="http://www.ultimatesoftware.com/foundation/authentication/clientaccesskey">CAN12</ClientAccessKey>
+    </s:Header>
+    <s:Body>
+        <FindJobs xmlns="http://www.ultipro.com/services/employeejob">
+            <query xmlns:b="http://www.ultipro.com/contracts"
+                xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+                <b:CompanyCode />
+                <b:CompanyName />
+                <b:Country />
+                <b:EmployeeNumber />
+                <b:FirstName>like (a%)</b:FirstName>
+                <b:FormerName />
+                <b:FullOrPartTime />
+                <b:Job />
+                <b:LastHire />
+                <b:LastName />
+                <b:Location />
+                <b:OrganizationLevel1 />
+                <b:OrganizationLevel2 />
+                <b:OrganizationLevel3 />
+                <b:OrganizationLevel4 />
+                <b:OriginalHire />
+                <b:PageNumber />
+                <b:PageSize />
+                <b:PayGroup />
+                <b:Status />
+                <b:SupervisorLastName />
+                <b:TerminationDate />
+                <b:TimeClockId />
+            </query>
+        </FindJobs>
+    </s:Body>
+</s:Envelope>

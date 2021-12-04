@@ -1,6 +1,3 @@
-import requests
-import xmltodict
-
 from src.services import SoapService, LoginToken
 
 __all__ = ['GetPersonByEmployeeIdentifier', 'FindPeople', 'UpdatePerson']
@@ -9,9 +6,6 @@ class PersonService(SoapService):
     """
     A class for handling the employee person service
     """
-
-    # service = 'employeeperson'
-
     def __init__(self, *args, **kwargs):
         self.headers = self.headers | {
             # 'Token': LoginToken().token(),
@@ -43,8 +37,12 @@ class FindPeople(PersonService):
 
 class UpdatePerson(PersonService):
 
-    def __init__(self, employee_id, *args, **kwargs):
-        self.headers = self.headers | { 'EmployeeIdentifier': employee_id }
+    def __init__(self, first_name, last_name, employee_id, *args, **kwargs):
+        self.headers = self.headers | { 
+            'EmployeeIdentifier': employee_id,
+            'FirstName': first_name,
+            'LastName': last_name }
+        self.headers = self.headers | {k:v for k,v in kwargs.items()}
         super(UpdatePerson, self).__init__(args, kwargs)
 
     

@@ -1,0 +1,38 @@
+<s:Envelope xmlns:a="http://www.w3.org/2005/08/addressing"
+    xmlns:s="http://www.w3.org/2003/05/soap-envelope">
+    <s:Header>
+        <a:Action s:mustUnderstand="1">http://www.ultipro.com/services/employeeperson/IEmployeePerson/UpdatePerson</a:Action>
+         <UltiProToken xmlns="http://www.ultimatesoftware.com/foundation/authentication/ultiprotoken">{{ Token }}</UltiProToken>
+        <ClientAccessKey xmlns="http://www.ultimatesoftware.com/foundation/authentication/clientaccesskey">{{ ClientAccessKey }}</ClientAccessKey>
+    </s:Header>
+    <s:Body>
+        <UpdatePerson xmlns="http://www.ultipro.com/services/employeeperson">
+            <entities xmlns:b="http://www.ultipro.com/contracts"
+                xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+                <b:Person>
+                    <b:AlternateEmailAddress>myemail@genericemail.com</b:AlternateEmailAddress>
+                    <b:EmailAddress i:nil="true" />
+                    <b:EmployeeIdentifier i:type="b:EmployeeNumberIdentifier">
+                        <b:CompanyCode>C0014</b:CompanyCode>
+                        <b:EmployeeNumber>555667788</b:EmployeeNumber>
+                    </b:EmployeeIdentifier>
+                    <b:FirstName i:nil="true" />
+                    <b:FormerLastName i:nil="true" />
+                    <b:LastName i:nil="true" />
+                    <b:MiddleName i:nil="true" />
+                    <b:PreferredFirstName>Buffy</b:PreferredFirstName>
+                    <b:Prefix i:nil="true" />
+                    <b:SSN i:nil="true" />
+                    <b:SelfServiceProperties xmlns:c="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+                        <c:KeyValueOfstringstring>
+                            <c:Key />
+                            <c:Value />
+                        </c:KeyValueOfstringstring>
+                    </b:SelfServiceProperties>
+                    <b:Suffix i:nil="true" />
+                    <b:SuppressSSN>false</b:SuppressSSN>
+                </b:Person>
+            </entities>
+        </UpdatePerson>
+    </s:Body>
+</s:Envelope>

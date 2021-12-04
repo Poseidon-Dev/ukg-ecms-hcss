@@ -1,0 +1,17 @@
+<s:Envelope xmlns:a="http://www.w3.org/2005/08/addressing"
+    xmlns:s="http://www.w3.org/2003/05/soap-envelope">
+    <s:Header>
+        <a:Action s:mustUnderstand="1">http://www.ultipro.com/services/employeejob/IEmployeeJob/GetJobByEmployeeIdentifier</a:Action>
+        <UltiProToken xmlns="http://www.ultimatesoftware.com/foundation/authentication/ultiprotoken">e477967b-aa38-4187-a1a9-0849a8aab891</UltiProToken>
+        <ClientAccessKey xmlns="http://www.ultimatesoftware.com/foundation/authentication/clientaccesskey">CAN12</ClientAccessKey>
+    </s:Header>
+    <s:Body>
+        <GetJobByEmployeeIdentifier xmlns="http://www.ultipro.com/services/employeejob">
+            <employeeIdentifier xmlns:b="http://www.ultipro.com/contracts"
+                xmlns:i="http://www.w3.org/2001/XMLSchema-instance" i:type="b:EmployeeNumberIdentifier">
+                <b:CompanyCode>C0014</b:CompanyCode>
+                <b:EmployeeNumber>555667788</b:EmployeeNumber>
+            </employeeIdentifier>
+        </GetJobByEmployeeIdentifier>
+    </s:Body>
+</s:Envelope>

@@ -1,6 +1,7 @@
 from src import Person
+from src import LoginToken
 
-service = Person.GetPersonByEmployeeIdentifier('99998')
+service = Person.UpdatePerson('SomeFirstName', 'SomeLastName', '99998')
 render = service.render()
 
 print(render)
