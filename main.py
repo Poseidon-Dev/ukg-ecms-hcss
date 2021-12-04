@@ -1,10 +1,7 @@
-from src.services import *
-from src.persons import *
+from src import Person
 
+service = Person.GetPersonByEmployeeIdentifier('99998')
+render = service.render()
 
-service = PersonService()
-person = service.get_person_by_id('99998')
-
-print(person)
-
+print(render)
 

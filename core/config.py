@@ -7,8 +7,8 @@ jin_env = jinja.Environment(loader=jinja.FileSystemLoader('templates'), lstrip_b
 
 ## Authentication Headers from environment variables
 auth_headers = {
-        'ClientAccessKey': ClientAccessKey, 
-        'Password': Password, 
-        'UserAccessKey': UserAccessKey,
-        'UserName': UserName,
-    }
+    'ClientAccessKey': ClientAccessKey, 
+    'Password': UKGPWD, 
+    'UserAccessKey': UserAccessKey,
+    'UserName': UKGUID,
+}

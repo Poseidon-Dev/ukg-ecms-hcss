@@ -1,10 +1,8 @@
 import os
 
 ## UKG Service Account Credentials
-UserName = os.getenv('UID')
-Password = os.getenv('PWD')
+UKGUID = os.getenv('UKGUID')
+UKGPWD = os.getenv('UKGPWD')
 ClientAccessKey = os.getenv('CUSTOMERAPIKEY')
 UserAccessKey = os.getenv('USERAPIKEY')
 BaseURL = os.getenv('APIURLBASE')
-
-
