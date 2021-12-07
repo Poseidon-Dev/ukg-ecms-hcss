@@ -1,5 +1,3 @@
-from requests import models
-from src.services.soap_connection import SoapService
 from src.services.login import UKGSoap
 
 __all__ = ['FindJobs', 'GetJobByEmployeeIdentifier', 'UpdateJob']

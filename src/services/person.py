@@ -1,11 +1,8 @@
-from src.services.soap_connection import SoapService
 from src.services.login import UKGSoap
 
 __all__ = ['GetPersonByEmployeeIdentifier', 'FindPeople', 'UpdatePerson']
 
 module_service = 'PersonService'
-
-auth_token = '1234'
 
 
 class GetPersonByEmployeeIdentifier(UKGSoap):
@@ -18,7 +15,6 @@ class GetPersonByEmployeeIdentifier(UKGSoap):
             'CompanyCode': company_code, 
         }
         super().__init__()
-
 
 
 class FindPeople(UKGSoap):
