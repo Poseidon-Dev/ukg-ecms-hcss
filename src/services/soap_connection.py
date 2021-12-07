@@ -12,17 +12,25 @@ class SoapService:
 
     service = ''
     method = ''
+    token = ''
     headers = {}
     base_headers = {'Content-Type': 'application/soap+xml; charset=utf-8'}
+    auth_headers = auth_headers
+
+    if not method:
+        @property
+        def method(self):
+            return self.__class__.__name__
+
+    if not service:
+        @property
+        def service(self):
+            return inspect.getmro(self.__class__)[1].__name__
 
 
     def __init__(self, *args, **kwargs):
-        self.auth_headers = auth_headers
+        self.auth_headers = self.auth_headers | {'Token': self.token }
         self.headers = self.headers | self.auth_headers | self.base_headers
-        if not self.method:
-            self.method = self.__class__.__name__
-        if not self.service:
-            self.service = inspect.getmro(self.__class__)[1].__name__
                 
 
     @property

@@ -1,31 +1,29 @@
 from src.services.soap_connection import SoapService
-from src.services.login import LoginToken
+from src.services.login import UKGSoap
 
 __all__ = ['GetPersonByEmployeeIdentifier', 'FindPeople', 'UpdatePerson']
 
-class PersonService(SoapService):
-    """
-    A class for handling the employee person service
-    """
-    def __init__(self, *args, **kwargs):
-        self.headers = self.headers | {
-            # 'Token': LoginToken().token(),
-            'Token': '123455',
-        }
-        super().__init__()
+module_service = 'PersonService'
+
+auth_token = '1234'
 
 
-class GetPersonByEmployeeIdentifier(PersonService):
+class GetPersonByEmployeeIdentifier(UKGSoap):
+
+    service = module_service
 
     def __init__(self, employee_id, company_code='APC', *args, **kwargs):
         self.headers = {
             'EmployeeIdentifier': employee_id,
             'CompanyCode': company_code, 
         }
-        super().__init__(args, kwargs)
+        super().__init__()
 
 
-class FindPeople(PersonService):
+
+class FindPeople(UKGSoap):
+
+    service = module_service
 
     def __init__(self, page_number=1, page_size=1, *args, **kwargs):
         self.headers = {
@@ -36,7 +34,9 @@ class FindPeople(PersonService):
         super().__init__(args, kwargs)
 
 
-class UpdatePerson(PersonService):
+class UpdatePerson(UKGSoap):
+
+    service = module_service
 
     def __init__(self, first_name, last_name, employee_id, *args, **kwargs):
         self.headers = self.headers | { 

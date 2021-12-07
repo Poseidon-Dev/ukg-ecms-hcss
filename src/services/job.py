@@ -1,35 +1,29 @@
+from requests import models
 from src.services.soap_connection import SoapService
-from src.services.login import LoginToken
+from src.services.login import UKGSoap
 
 __all__ = ['FindJobs', 'GetJobByEmployeeIdentifier', 'UpdateJob']
 
-class JobService(SoapService):
-    """
-    A class for handlding the job service 
-    """
-    def __init__(self, *args, **kwargs):
-        self.headers = self.headers | {
-            'Token': '12345',
-            # 'Token': Login.LoginToken(),
-        }
-        super(JobService, self).__init__()
+module_service = 'JobService'
+
+class FindJobs(UKGSoap):
+
+    service = module_service
 
 
-class FindJobs(JobService):
+class GetJobByEmployeeIdentifier(UKGSoap):
 
-    def __init__(self):
-        self.headers = {}
-        super(FindJobs, self).__init__()
-
-
-class GetJobByEmployeeIdentifier(JobService):
+    service = module_service
 
     def __init__(self):
         self.headers = {}
         super(GetJobByEmployeeIdentifier, self).__init__()
 
 
-class UpdateJob(JobService):
+
+class UpdateJob(UKGSoap):
+
+    service = module_service
 
     def __init__(self):
         self.headers = {}
