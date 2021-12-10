@@ -2,8 +2,7 @@ from src.services.login import UKGSoap
 
 __all__ = ['GetPersonByEmployeeIdentifier', 'FindPeople', 'UpdatePerson']
 
-module_service = 'PersonService'
-
+module_service = 'employeeperson'
 
 class GetPersonByEmployeeIdentifier(UKGSoap):
 

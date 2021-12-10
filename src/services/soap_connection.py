@@ -55,7 +55,7 @@ class SoapService:
         """
         Base jijna renderer
         """
-        return self.template().render(self.headers)
+        return self.template().render(self.headers | {'method_name': self.method})
         
 
     def post(self):
