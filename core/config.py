@@ -1,11 +1,12 @@
 import jinja2 as jinja
-import importlib
 
 from core.defaults import *
 
 
 ## Jinja Environment
-jin_env = jinja.Environment(loader=jinja.FileSystemLoader('templates'), lstrip_blocks=True)
+jin_temp_location = 'templates'
+jin_env = jinja.Environment(loader=jinja.FileSystemLoader(jin_temp_location), lstrip_blocks=True)
+
 
 ## Authentication Headers from environment variables
 auth_headers = {
@@ -14,4 +15,3 @@ auth_headers = {
     'UserAccessKey': UserAccessKey,
     'UserName': UKGUID,
 }
-

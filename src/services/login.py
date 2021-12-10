@@ -9,11 +9,12 @@ class LoginService(SoapService):
 
     service = 'LoginService'
     
+    @property
     def token(self):
         """
         Converts the base response into a single token string
         """
-        return '2345'
+        # return '2345'
         token_response = re.search(r'<TokenResponse(.*?)</TokenResponse>', self.post()).group(1)
         return re.search(r'<Token xmlns="http://www.ultipro.com/services/loginservice">(.*?)<', token_response).group(1)
 
@@ -21,4 +22,4 @@ class LoginService(SoapService):
 
 class UKGSoap(SoapService):
 
-    token = LoginService().token()
+    token = LoginService().token
