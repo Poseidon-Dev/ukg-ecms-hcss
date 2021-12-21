@@ -33,11 +33,12 @@ class UpdatePerson(UKGSoap):
 
     service = module_service
 
-    def __init__(self, first_name, last_name, employee_id, *args, **kwargs):
+    def __init__(self, employee_id, company_code='APC', suppress_ssn='false', *args, **kwargs):
         self.headers = self.headers | { 
+            'CompanyCode': company_code, 
             'EmployeeIdentifier': employee_id,
-            'FirstName': first_name,
-            'LastName': last_name }
+            'suppress_ssn': suppress_ssn
+        }
         self.headers = self.headers | {k:v for k,v in kwargs.items()}
         super().__init__(args, kwargs)
 

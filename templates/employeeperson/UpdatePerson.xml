@@ -10,27 +10,26 @@
             <entities xmlns:b="http://www.ultipro.com/contracts"
                 xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
                 <b:Person>
-                    <b:AlternateEmailAddress>myemail@genericemail.com</b:AlternateEmailAddress>
-                    <b:EmailAddress i:nil="true" />
+                    <b:AlternateEmailAddress{% if alternative_email_address %}>{{ alternative_email_address }}</b:AlternateEmailAddress>{% else %} i:nil="true" /> {% endif %}
+                    <b:EmailAddress{% if email_address %}>{{ email_address }}</b:EmailAddress>{% else %} i:nil="true" /> {% endif %}
+                    <b:FirstName{% if first_name %}>{{ first_name }}</b:FirstName>{% else %} i:nil="true" /> {% endif %}
+                    <b:FormerLastName{% if former_last_name %}>{{ former_last_name }}</b:FormerLastName>{% else %} i:nil="true" /> {% endif %}
+                    <b:LastName{% if last_name %}>{{ last_name }}</b:LastName>{% else %} i:nil="true" /> {% endif %}
+                    <b:MiddleName{% if middle_name %}>{{ middle_name }}</b:MiddleName>{% else %} i:nil="true" /> {% endif %}
+                    <b:PreferredFirstName{% if preferred_first_name %}>{{ preferred_first_name }}</b:PreferredFirstName>{% else %} i:nil="true" /> {% endif %}
+                    <b:Prefix{% if prefix %}>{{ prefix }}</b:Prefix>{% else %} i:nil="true" /> {% endif %}
+                    <b:SSN{% if ssn %}>{{ ssn }}</b:SSN>{% else %} i:nil="true" /> {% endif %}
+                    <b:SuppressSSN{% if suppress_ssn %}>{{ suppress_ssn }}</b:SuppressSSN>{% else %} i:nil="true" /> {% endif %}
                     <b:EmployeeIdentifier i:type="b:EmployeeNumberIdentifier">
-                        <b:CompanyCode>C0014</b:CompanyCode>
-                        <b:EmployeeNumber>555667788</b:EmployeeNumber>
+                        <b:CompanyCode>{{ CompanyCode }}</b:CompanyCode>
+                        <b:EmployeeNumber>{{ EmployeeIdentifier }}</b:EmployeeNumber>
                     </b:EmployeeIdentifier>
-                    <b:FirstName i:nil="true" />
-                    <b:FormerLastName i:nil="true" />
-                    <b:LastName i:nil="true" />
-                    <b:MiddleName i:nil="true" />
-                    <b:PreferredFirstName>Buffy</b:PreferredFirstName>
-                    <b:Prefix i:nil="true" />
-                    <b:SSN i:nil="true" />
                     <b:SelfServiceProperties xmlns:c="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
                         <c:KeyValueOfstringstring>
                             <c:Key />
                             <c:Value />
                         </c:KeyValueOfstringstring>
                     </b:SelfServiceProperties>
-                    <b:Suffix i:nil="true" />
-                    <b:SuppressSSN>false</b:SuppressSSN>
                 </b:Person>
             </entities>
         </UpdatePerson>
