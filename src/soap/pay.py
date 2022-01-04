@@ -1,4 +1,4 @@
-from src.services.login import UKGSoap
+from src.soap.login import UKGSoap
 
 class PayService(UKGSoap):
 

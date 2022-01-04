@@ -1,4 +1,6 @@
-from src.services.login import UKGSoap
+from src.soap.login import UKGSoap
+from src.soap.person.models import Person
+from src.utils import ReadXML
 
 __all__ = ['GetPersonByEmployeeIdentifier', 'FindPeople', 'UpdatePerson']
 
@@ -15,6 +17,11 @@ class GetPersonByEmployeeIdentifier(UKGSoap):
         }
         super().__init__()
 
+
+    def results(self):
+        val = self.post()
+        return Person(ReadXML(val).results())
+        # return ReadXML(val).results()
 
 class FindPeople(UKGSoap):
 

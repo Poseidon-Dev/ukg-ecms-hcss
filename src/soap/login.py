@@ -1,6 +1,6 @@
 import re
 
-from src.services.soap_connection import SoapService
+from src.soap.soap_connection import SoapService
 
 __all__ = ['UKGSoap']
 

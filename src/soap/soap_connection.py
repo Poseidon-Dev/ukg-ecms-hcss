@@ -69,3 +69,4 @@ class SoapService:
             data=self.render()
             ).text
         return post
+

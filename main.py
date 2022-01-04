@@ -1,16 +1,33 @@
 from src import Person
+from requests.auth import HTTPBasicAuth
 
-service = Person.GetPersonByEmployeeIdentifier('99998')
-print(service.render())
-print('\n')
-print(service.post())
-print('\n')
-print('\n')
-update = Person.UpdatePerson('99998', last_name='SomeNewTestLast')
-print(update.render())
-print('\n')
-print(update.post())
+## Serivice POST TEST
+service = Person.GetPersonByEmployeeIdentifier('12799')
+person = service.results()
+print(person)
 
 
-# service = Person.GetPersonByEmployeeIdentifier('99998')
-# print(service.post())
+## REST GET TEST
+
+# code = UKGApi()
+# resp = code._get_request()
+# print(resp)
+
+# UKGUID = os.getenv('APLBOT')
+# UKGPWD = os.getenv('PWD')
+# ClientAccessKey = os.getenv('CUSTOMERAPIKEY')
+# url = 'https://service5.ultipro.com/configuration/v1/company-details'
+# auth = HTTPBasicAuth(UKGUID, UKGPWD)
+# headers = {'US-Customer-Api-Key': ClientAccessKey}
+
+# resp = requests.get(url=url, auth=auth, headers=headers)
+
+# print(resp.text)
+
+
+# resp = ReadXML().results()
+
+# for k,val in resp.items():
+#     print(k,': ', val)
+
+# print(resp)
