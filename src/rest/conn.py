@@ -1,44 +1,79 @@
 import requests
 import os
+import json
 from requests.auth import HTTPBasicAuth
 
 from core.defaults import *
 
-__all__ = ['UKGApi', ]
+__all__ = ['UKGApi',]
 
 class UKGApi:
+
+    module = 'configuration'
+    method = 'company-details'
+    version = 'v1'
 
     def __init__(self):
         self.auth = HTTPBasicAuth(UKGUID, UKGPWD)
         self.headers = {'US-Customer-Api-Key': ClientAccessKey}
         self.base_url = os.getenv('RESTURLBASE')
+        self.resp = 'No request made'
 
 
-    def test_creds(self):
-        response = self._get_request("Authorization")
+    def test_connection(self):
+        response = self._get_request(self.module, self.method)
         return response.status_code == 200
 
+
+    def _base_request(self, module, method, version, data, *args, **kwargs):
+        if data:
+            data = json.dumps(data)
+        url = f'{self.base_url}{module}/{version}/{method}'
+        base = {'url': url, 'data': data}
+        return base
+
+
+    def _get_request(self, module, method, version='v1', *args, **params):
+        base = self._base_request(module, method, version, *args, **params)
+        return requests.get(url=base['url'], auth=self.auth, headers=self.headers, params=base['data'])
+
+
+    def get(self, *args, **kwargs):
+        self.resp = self._get_request(self.module, self.method, self.version, *args, **kwargs)
+        return self
+
+
+    def _post_request(self, module, method, version='v1', params=None, *args, **kwargs):
+        base = self._base_request(module, method, version, params, *args, **kwargs)
+        return requests.post(url=base['url'], auth=self.auth, headers=self.headers, params=base['data'])
+
+
+    def post(self, *args, **kwargs):
+        self.resp = self._post_request(self.module, self.method, self.version, *args, **kwargs)
+        return self
     
-    def changes(self):
-        response = self._get_request('personnel', 'employee-ids')
-        return response
 
-    
-    def _get_request(self, service=None, method=None):
-        # url = f'{RestURL}{service}/v1/{method}'
-        url = f'{self.base_url}configuration/v1/code-tables'
-        url = 'https://login.ultipro.com'
-        headers = self.headers 
-        # url += f'/employeeIdentifierValue?12799'
-        print(headers)
-        print(self.auth)
-        print(url)
-        return requests.get(url, auth=self.auth, headers=headers)
+    def data(self):
+        try:
+            data = json.loads(self.resp.text)
+            return data
+        except AttributeError:
+            print('No request was made')
 
 
-    def _post_request(self, service, method):
-        url = f'{RestURL}/{service}/v1/{method}'
-        print(url)
-        return requests.post(url, auth=self.auth, headers=self.headers)
+class CompanyDetail(UKGApi):
 
-    
+    module = 'configuration'
+    method = 'company-details'
+  
+
+class EmployeeLookup(UKGApi):
+
+    module = 'personnel'
+    method = 'employee-ids'
+
+
+class EmployeeJobHistory(UKGApi):
+
+    module = 'personnel'
+    method = 'employee-job-history-details'

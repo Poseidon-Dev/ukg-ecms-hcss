@@ -1,0 +1,18 @@
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing"> 
+  <s:Header> 
+  <a:Action s:mustUnderstand="1">http://www.ultipro.com/dataservices/bidata/2/IBIDataServic e/GetReportList</a:Action>  
+    <a:To s:mustUnderstand="1">https://servicehost/services/BiDataService</a:To>  
+  </s:Header> 
+  <s:Body> 
+    <GetReportList xmlns="http://www.ultipro.com/dataservices/bidata/2"> 
+      <context xmlns:i="http://www.w3.org/2001/XMLSchema-instance"> 
+        <ServiceId>{{ service }}</ServiceId>  
+        <ClientAccessKey>{{ ClientAccessKey }}</ClientAccessKey>  
+        <Token>{{ Token }}</Token>  
+        <Status>Ok</Status>  
+        <StatusMessage i:nil="true" />  
+        <InstanceKey>{{ instance }}</InstanceKey>  
+      </context> 
+    </GetReportList> 
+  </s:Body> 
+</s:Envelope>

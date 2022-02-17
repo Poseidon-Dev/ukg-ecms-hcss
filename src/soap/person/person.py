@@ -1,5 +1,5 @@
 from src.soap.login import UKGSoap
-from src.soap.person.models import Person
+from src.soap.person import models
 from src.utils import ReadXML
 
 __all__ = ['GetPersonByEmployeeIdentifier', 'FindPeople', 'UpdatePerson']
@@ -20,14 +20,13 @@ class GetPersonByEmployeeIdentifier(UKGSoap):
 
     def results(self):
         val = self.post()
-        return Person(ReadXML(val).results())
-        # return ReadXML(val).results()
+        return models.Person(ReadXML(val).results())
 
 class FindPeople(UKGSoap):
 
     service = module_service
 
-    def __init__(self, page_number=1, page_size=1, *args, **kwargs):
+    def __init__(self, page_number='1', page_size='100', *args, **kwargs):
         self.headers = {
             'page_number': page_number,
             'page_size': page_size,

@@ -8,6 +8,8 @@ requests = "*"
 lxml = "*"
 jinja2 = "*"
 xmltodict = "*"
+jsondiff = "*"
+deepdiff = "*"
 
 [dev-packages]
 

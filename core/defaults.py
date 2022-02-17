@@ -1,9 +1,11 @@
 import os
 
+env = os.environ.copy()
+
 ## UKG Service Account Credentials
-UKGUID = os.getenv('UID')
-UKGPWD = os.getenv('PWD')
-ClientAccessKey = os.getenv('CUSTOMERAPIKEY')
-UserAccessKey = os.getenv('USERAPIKEY')
-BaseURL = os.getenv('APIURLBASE')
-RestURL = os.getenv('RESTURLBASE')
+UKGUID = env['UID']
+UKGPWD = env['PWD']
+ClientAccessKey = env['CUSTOMERAPIKEY']
+UserAccessKey = env['USERAPIKEY']
+BaseURL = env['APIURLBASE']
+RestURL = env['RESTURLBASE']

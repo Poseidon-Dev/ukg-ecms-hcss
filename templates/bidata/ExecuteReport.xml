@@ -1,0 +1,30 @@
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing">
+    <s:Header>
+        <a:Action s:mustUnderstand="1">http://www.ultipro.com/dataservices/bidata/2/IBIDataService/ExecuteReport</a:Action>
+        <a:To s:mustUnderstand="1">https://servicehost/services/BiDataService</a:To>
+    </s:Header>
+    <s:Body>
+        <ExecuteReport xmlns="http://www.ultipro.com/dataservices/bidata/2">
+            <request xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+                <ReportPath>{{ report_path }}</ReportPath>
+                <!-- <ReportParameters>
+                    <ReportParameter>
+                        <Name>EmployeeNumber</Name>
+                        <Value>12799</Value>
+                        <Required>false</Required>
+                        <DataType>xsdInteger</DataType>
+                        <MultiValued>true</MultiValued>
+                    </ReportParameter>
+                </ReportParameters> -->
+            </request>
+            <context xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+                <ServiceId>{{ service }}</ServiceId>
+                <ClientAccessKey>{{ ClientAccessKey }}</ClientAccessKey>
+                <Token>{{ Token }}</Token>
+                <Status>Ok</Status>
+                <StatusMessage i:nil="true" />
+                <InstanceKey>{{ instance }}</InstanceKey>
+            </context>
+        </ExecuteReport>
+    </s:Body>
+</s:Envelope>
